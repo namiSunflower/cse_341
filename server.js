@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
+const distDir = __dirname + "/dist/";
 
 const port = process.env.PORT || 3000;
 const app = express();
 
-app
+
+app.use(express.static(distDir))
   .use(bodyParser.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
