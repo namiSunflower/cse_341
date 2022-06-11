@@ -4,12 +4,12 @@ dotenv.config();
 
 let _db;
 
-const initDb = (callback) => {
+const initDb = async (callback) => {
   if (_db) {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(process.env.DB_CONNECTION)
+  await MongoClient.connect(process.env.DB_CONNECTION)
     .then((client) => {
       _db = client;
       callback(null, _db);
