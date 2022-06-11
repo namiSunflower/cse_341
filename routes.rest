@@ -1,3 +1,4 @@
+//LOCAL
 //All contacts
 GET http://localhost:3000/contacts
 
@@ -9,3 +10,16 @@ GET http://localhost:3000/contacts/62a257df025249739a89b297
 
 //Keikei's info:
 GET http://localhost:3000/contacts/62a25814025249739a89b298
+
+//HEROKU
+//All contacts
+GET https://polar-spire-69659.herokuapp.com/contacts
+
+//Beatrice's info:
+GET https://polar-spire-69659.herokuapp.com/contacts/62a2574b025249739a89b296
+
+//Kiev's info:
+GET https://polar-spire-69659.herokuapp.com/contacts/62a257df025249739a89b297
+
+//Keikei's info:
+GET https://polar-spire-69659.herokuapp.com/contacts/62a25814025249739a89b298
