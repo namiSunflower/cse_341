@@ -11,6 +11,34 @@ GET http://localhost:3000/contacts/62a257df025249739a89b297
 //Keikei's info:
 GET http://localhost:3000/contacts/62a25814025249739a89b298
 
+//POST (create new contact)
+POST http://localhost:3000/contacts  
+HTTP/1.1 
+content-type: application/json
+{
+  "firstName":"Gwen", 
+  "lastName":"Gorrez", 
+  "email":"gwen@mail.com", 
+  "favoriteColor":"Pink", 
+  "birthday":"07/26/1982"
+}
+
+//PUT (update)
+PUT http://localhost:3000/contacts/62a25814025249739a89b298  
+HTTP/1.1 
+content-type: application/json
+  {
+    "firstName": "Karen Mhyrr",
+    "lastName": "Alido",
+    "email": "keikei@mail.com",
+    "favoriteColor": "pink",
+    "birthday": "04/30/01"
+  }
+
+//DELETE 
+DELETE http://localhost:3000/contacts/62a8f6bbb03dac5df09ef8c7 HTTP/1.1
+
+
 //HEROKU
 //All contacts
 GET https://polar-spire-69659.herokuapp.com/contacts
@@ -23,3 +51,6 @@ GET https://polar-spire-69659.herokuapp.com/contacts/62a257df025249739a89b297
 
 //Keikei's info:
 GET https://polar-spire-69659.herokuapp.com/contacts/62a25814025249739a89b298
+
+
+
