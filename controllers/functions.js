@@ -77,7 +77,4 @@ const deleteOne = async(req, res) => {
   }
 }
 
-
-
-
 module.exports = {displayAll, displayOne, createOne, updateOne, deleteOne};
