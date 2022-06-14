@@ -33,7 +33,7 @@ const createOne = async (req, res, next) => {
   }
   const result = await mongodb.getDb().db('cse341').collection('contacts').insertOne(newContact);
   if (result.acknowledged){
-    res.status(201).json(response);
+    res.status(201).json(result);
   }
   else{
     res.status(500).json(result.error || 'An error occurred while creating the new contact.')
@@ -59,7 +59,7 @@ const updateOne = async (req, res, next) => {
     if(result.modifiedCount > 0){
       res.status(204).send();
     } else {
-      res.status(500).json(response.error || 'An error occurred while updating the contact.')
+      res.status(500).json(result.error || 'An error occurred while updating the contact.')
     }
 }
 
