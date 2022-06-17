@@ -5,7 +5,7 @@ const doc = {
       title: 'Temple API',
       description: 'This API shows a list of different temples',
     },
-    host: 'https://polar-spire-69659.herokuapp.com',
+    host: '//polar-spire-69659.herokuapp.com',
     schemes: ['http'],
   };
 
