@@ -90,8 +90,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "contact user ID"
+            "type": "string"
           }
         ],
         "responses": {
@@ -111,8 +110,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "contact user ID"
+            "type": "string"
           },
           {
             "name": "body",
@@ -156,8 +154,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "contact user ID"
+            "type": "string"
           }
         ],
         "responses": {
