@@ -3,6 +3,10 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const displayAll = async (req, res, next) => {
+  //#swagger.summary = Use to request all contacts
+  /* #swagger.responses[200] = { 
+              description: 'Successfully retrieved all contacts.' 
+  } */
   const result = await mongodb.getDb().db('cse341').collection('contacts').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
@@ -11,6 +15,12 @@ const displayAll = async (req, res, next) => {
 };
 
 const displayOne = async (req, res, next) => {
+  //#swagger.summary = Use to create update existing contact
+   /* #swagger.responses[200] = { 
+              description: 'Successfully updated the contact.' 
+   }
+  #swagger.parameters['id'] = {description: 'contact user ID'}
+   */
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
@@ -24,6 +34,14 @@ const displayOne = async (req, res, next) => {
 };
 
 const createOne = async (req, res, next) => {
+   //#swagger.summary = Use to create a new contact
+   /* #swagger.responses[201] = { 
+              description: 'Successfully created a new contact.' 
+   }
+   #swagger.responses[500] = {
+            description: 'Failed to create new contact.'
+   }
+   */
   const newContact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -41,6 +59,15 @@ const createOne = async (req, res, next) => {
 };
 
 const updateOne = async (req, res, next) => {
+  //#swagger.summary = Use to create update existing contact
+   /* #swagger.responses[204] = { 
+              description: 'Successfully updated the contact.' 
+   }
+   #swagger.responses[500] = {
+            description: 'Failed to create new contact.'
+   }
+  #swagger.parameters['id'] = {description: 'contact user ID'}
+   */
   const userId = new ObjectId(req.params.id);
   //Be aware that using updateOne instead will update specific fields only
   const updatedContact = {
@@ -64,6 +91,15 @@ const updateOne = async (req, res, next) => {
 }
 
 const deleteOne = async(req, res) => {
+   //#swagger.summary = Use to delete a contact
+   /* #swagger.responses[204] = { 
+              description: 'Successfully deleted the contact.' 
+   }
+   #swagger.responses[500] = {
+            description: 'Failed to delete contact.'
+   }
+   #swagger.parameters['id'] = {description: 'contact user ID'}
+   */ 
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
   .getDb()
