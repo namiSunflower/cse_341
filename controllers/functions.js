@@ -22,7 +22,6 @@ const displayOne = async (req, res, next) => {
    /* #swagger.responses[200] = { 
               description: 'Successfully updated the contact.' 
    }
-  #swagger.parameters['id'] = {description: 'contact user ID'}
    */
   try{
   const userId = new ObjectId(req.params.id);
@@ -77,7 +76,6 @@ const updateOne = async (req, res, next) => {
    #swagger.responses[500] = {
             description: 'Failed to create new contact.'
    }
-  #swagger.parameters['id'] = {description: 'contact user ID'}
    */
   try{
   const userId = new ObjectId(req.params.id);
@@ -113,7 +111,6 @@ const deleteOne = async(req, res) => {
    #swagger.responses[500] = {
             description: 'Failed to delete contact.'
    }
-   #swagger.parameters['id'] = {description: 'contact user ID'}
    */ 
   try{
   const userId = new ObjectId(req.params.id);
