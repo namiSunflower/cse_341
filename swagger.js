@@ -2,8 +2,8 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
-      title: 'Temple API',
-      description: 'This API shows a list of different temples',
+      title: 'My Contacts API',
+      description: 'This API shows a list of close family and friends',
     },
     host: 'polar-spire-69659.herokuapp.com',
     schemes: ['https'],
