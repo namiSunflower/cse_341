@@ -8,7 +8,7 @@
   "host": "polar-spire-69659.herokuapp.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {

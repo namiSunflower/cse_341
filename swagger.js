@@ -6,7 +6,7 @@ const doc = {
       description: 'This API shows a list of different temples',
     },
     host: 'polar-spire-69659.herokuapp.com',
-    schemes: ['http'],
+    schemes: ['https'],
   };
 
 const outputFile = './swagger_output.json'
