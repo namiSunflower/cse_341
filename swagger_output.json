@@ -5,7 +5,7 @@
     "description": "This API shows a list of different temples",
     "version": "1.0.0"
   },
-  "host": "https://polar-spire-69659.herokuapp.com/",
+  "host": "polar-spire-69659.herokuapp.com",
   "basePath": "/",
   "schemes": [
     "http"
@@ -22,7 +22,7 @@
         }
       }
     },
-    "/contacts/": {
+    "contacts/": {
       "get": {
         "summary": "Use to request all contacts",
         "description": "",
@@ -75,7 +75,7 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "contacts/{id}": {
       "get": {
         "summary": "Use to create update existing contact",
         "description": "",
