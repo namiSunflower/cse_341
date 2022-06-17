@@ -5,7 +5,7 @@
     "description": "This API shows a list of different temples",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://polar-spire-69659.herokuapp.com/",
   "basePath": "/",
   "schemes": [
     "http"
