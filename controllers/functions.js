@@ -7,11 +7,14 @@ const displayAll = async (req, res, next) => {
   /* #swagger.responses[200] = { 
               description: 'Successfully retrieved all contacts.' 
   } */
+  try{
   const result = await mongodb.getDb().db('cse341').collection('contacts').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  });
+  });} catch(err){
+      res.status(500).json(err)
+  }
 };
 
 const displayOne = async (req, res, next) => {
@@ -21,6 +24,7 @@ const displayOne = async (req, res, next) => {
    }
   #swagger.parameters['id'] = {description: 'contact user ID'}
    */
+  try{
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
@@ -30,7 +34,9 @@ const displayOne = async (req, res, next) => {
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
-  });
+  }); } catch(err){
+    res.status(500).json(err);
+  }
 };
 
 const createOne = async (req, res, next) => {
@@ -42,20 +48,25 @@ const createOne = async (req, res, next) => {
             description: 'Failed to create new contact.'
    }
    */
-  const newContact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
-  }
+  try{
+    const newContact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+  
   const result = await mongodb.getDb().db('cse341').collection('contacts').insertOne(newContact);
   if (result.acknowledged){
     res.status(201).json(result);
   }
   else{
     res.status(500).json(result.error || 'An error occurred while creating the new contact.')
-  }
+  }}
+  catch(err){
+    res.status(500).json(err);
+  }_
 };
 
 const updateOne = async (req, res, next) => {
@@ -68,15 +79,16 @@ const updateOne = async (req, res, next) => {
    }
   #swagger.parameters['id'] = {description: 'contact user ID'}
    */
+  try{
   const userId = new ObjectId(req.params.id);
   //Be aware that using updateOne instead will update specific fields only
-  const updatedContact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
-  }
+    const updatedContact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    }
   const result = await mongodb
     .getDb()
     .db('cse341')
@@ -88,6 +100,9 @@ const updateOne = async (req, res, next) => {
     } else {
       res.status(500).json(result.error || 'An error occurred while updating the contact.')
     }
+  }catch (err){
+    res.status(500).json(err);
+  }
 }
 
 const deleteOne = async(req, res) => {
@@ -100,6 +115,7 @@ const deleteOne = async(req, res) => {
    }
    #swagger.parameters['id'] = {description: 'contact user ID'}
    */ 
+  try{
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
   .getDb()
@@ -110,6 +126,8 @@ const deleteOne = async(req, res) => {
     res.status(204).send();
   } else {
     res.status(500).json(result.error || 'An error occurred while deleting the contact');
+  }} catch(err){
+    res.status(500).json(err);
   }
 }
 

@@ -33,6 +33,9 @@
         "responses": {
           "200": {
             "description": "Successfully retrieved all contacts."
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -94,6 +97,9 @@
         "responses": {
           "200": {
             "description": "Successfully updated the contact."
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
